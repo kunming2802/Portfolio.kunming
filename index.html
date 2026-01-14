@@ -33,20 +33,20 @@
             }
         }
 
-       @keyframes glow {
-    0%, 100% {
-        box-shadow: 
-            0 0 14px rgba(30, 64, 175, 0.25),
-            0 0 28px rgba(29, 78, 216, 0.15),
-            inset 0 0 12px rgba(30, 64, 175, 0.05);
-    }
-    50% {
-        box-shadow: 
-            0 0 22px rgba(30, 64, 175, 0.35),
-            0 0 36px rgba(29, 78, 216, 0.2),
-            inset 0 0 18px rgba(30, 64, 175, 0.08);
-    }
-}
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px rgba(30, 64, 175, 0.4),
+                    0 0 40px rgba(29, 78, 216, 0.2),
+                    inset 0 0 20px rgba(30, 64, 175, 0.08);
+            }
+            50% {
+                box-shadow: 
+                    0 0 30px rgba(30, 64, 175, 0.6),
+                    0 0 60px rgba(29, 78, 216, 0.4),
+                    inset 0 0 30px rgba(30, 64, 175, 0.15);
+            }
+        }
 
         @keyframes borderGlow {
             0%, 100% {
@@ -66,26 +66,12 @@
             }
         }
 
-        @keyframes float {
+       @keyframes float {
             0%, 100% {
                 transform: translateY(0px);
             }
             50% {
                 transform: translateY(-8px);
-            }
-        }
-
-        @keyframes shooting-star {
-            0% {
-                transform: translateX(0) translateY(0) rotate(-45deg);
-                opacity: 1;
-            }
-            70% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-300px) translateY(300px) rotate(-45deg);
-                opacity: 0;
             }
         }
 
@@ -99,48 +85,19 @@
                 transform: scale(1.2);
             }
         }
-@keyframes auraPulse {
-    0%, 100% {
-        opacity: 0.6;
-        filter: blur(16px);
-    }
-    50% {
-        opacity: 0.9;
-        filter: blur(22px);
-    }
-}
 
-        .star {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-            animation: twinkle 3s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .shooting-star {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: linear-gradient(90deg, white, transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: shooting-star 2s ease-out infinite;
-            z-index: 1;
-        }
-
-        .shooting-star::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 2px;
-            width: 50px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), transparent);
+        @keyframes shooting-star {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(300px) translateY(300px);
+                opacity: 0;
+            }
         }
 
         body {
@@ -167,51 +124,74 @@
                 radial-gradient(circle at 20% 30%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(30, 64, 175, 0.06) 0%, transparent 50%);
             pointer-events: none;
-            z-index: 0;
         }
-
-        #stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .container {
-    max-width: 1200px;
-    width: 100%;
-    background: #000000;
-    border: 1.5px solid rgba(0, 0, 0, 0.85); /* ✅ ขอบดำ */
-    border-radius: 24px;
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeInUp 0.8s ease-out;
-    z-index: 2;
+.star {
+    position: fixed;
+    width: 3px;          /* จาก 2px */
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 12px rgba(255, 255, 255, 0.6);
+    animation: twinkle 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 3;          /* ⭐ สูงกว่า container */
 }
 
-        .container::before {
-      .container::before {
+.shooting-star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: shooting-star 1s ease-out infinite; /* เร็วขึ้น */
+    z-index: 3;
+    box-shadow:
+        0 0 10px rgba(255,255,255,1),
+        0 0 20px rgba(255,255,255,0.8);
+}
+.shooting-star::before {
     content: '';
     position: absolute;
-    inset: -2px;
-    border-radius: 26px;
-animation: auraPulse 4s ease-in-out infinite;
-
-    background: radial-gradient(
-        ellipse at center,
-        rgba(59, 130, 246, 0.35),
-        rgba(59, 130, 246, 0.15),
-        transparent 65%
+    top: 0;
+    right: 0;
+    height: 3px;
+    width: 120px;   /* จาก 50px → ยาวขึ้น */
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0.6),
+        transparent
     );
+}
 
-    filter: blur(18px);
-    opacity: 0.8;
-    z-index: -1;
-      }}
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #050505;
+            border: 2px solid #1e40af;
+            border-radius: 24px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out, glow 3s ease-in-out infinite;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1e40af, #1e3a8a, #1d4ed8, #1e40af);
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.25;
+            animation: borderGlow 2s ease-in-out infinite;
+        }
 
         .container::after {
             content: '';
@@ -276,7 +256,7 @@ animation: auraPulse 4s ease-in-out infinite;
         .name {
             font-size: 48px;
             font-weight: 800;
-            background: linear-gradient(135deg, #acb4c2 0%, #d4dcf6 50%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #768193 0%, #e8ebf5 50%, #1e3a8a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -311,18 +291,20 @@ animation: auraPulse 4s ease-in-out infinite;
         }
 
         .contact {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(15, 23, 42, 0.5);
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(30, 64, 175, 0.3);
-            box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
-        }
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(30, 64, 175, 0.3);
+    box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
+}
+
 
         .contact-item {
             display: flex;
@@ -368,21 +350,18 @@ animation: auraPulse 4s ease-in-out infinite;
             animation-delay: 0.6s;
         }
 
-       .section-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    color: #ffffff; /* ✅ เปลี่ยนเป็นสีขาว */
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35); /* glow ขาวเบาๆ */
-}
-
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(30, 64, 175, 0.4);
+        }
 
         .section-title::before {
             content: '';
@@ -434,20 +413,16 @@ animation: auraPulse 4s ease-in-out infinite;
             box-shadow: 0 10px 30px rgba(30, 64, 175, 0.25);
         }
 
-      .skill-category h3 {
-    font-size: 17px;                 /* ใหญ่ขึ้นนิด */
-    font-weight: 800;                /* ✅ หนาชัด */
-  color: #e6f0ff; 
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    text-align: center;
-
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.4),
-        0 0 16px rgba(59, 130, 246, 0.25); /* glow ฟ้าเบาๆ */
-}
-
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(30, 64, 175, 0.4);
+            text-align: center;
+        }
 
         .skill-tags {
             display: flex;
@@ -457,17 +432,16 @@ animation: auraPulse 4s ease-in-out infinite;
         }
 
         .skill-tag {
-    background: rgba(15, 23, 42, 0.6);
-    color: #ffffff;              /* ✅ สีขาว */
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transition: all 0.3s;
-    cursor: default;
-    font-weight: 500;
-}
-
+            background: rgba(15, 23, 42, 0.6);
+            color: #60a5fa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(30, 64, 175, 0.3);
+            transition: all 0.3s;
+            cursor: default;
+            font-weight: 500;
+        }
 
         .skill-tag:hover {
             background: rgba(30, 64, 175, 0.3);
@@ -542,6 +516,21 @@ animation: auraPulse 4s ease-in-out infinite;
             margin-bottom: 8px;
             transition: all 0.3s;
         }
+.project-role {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 10px;
+
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #e6f0ff;
+
+    margin-bottom: 8px;
+}
+
 
         .project-date {
             font-size: 13px;
@@ -556,7 +545,7 @@ animation: auraPulse 4s ease-in-out infinite;
         }
 
         .project-desc {
-            color: #cbd5e1;
+            color: #93c5fd;
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 15px;
@@ -638,12 +627,6 @@ animation: auraPulse 4s ease-in-out infinite;
             text-shadow: 0 0 10px rgba(30, 64, 175, 0.6);
         }
 
-        @media (max-width: 1024px) {
-            .container {
-                padding: 40px;
-            }
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 30px;
@@ -660,29 +643,32 @@ animation: auraPulse 4s ease-in-out infinite;
             .skills-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
+        @media (max-width: 480px) {
+        .profile-section {
+            flex-direction: column;
+            text-align: center;
         }
 
-        @media (max-width: 480px) {
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
+        .name {
+            font-size: 28px;
+        }
 
-            .name {
-                font-size: 28px;
-            }
+        .contact {
+            position: static;
+            margin-top: 20px;
+        }
+    }
 
-            .contact {
-                position: static;
-                margin-top: 20px;
-            }
+ @media (max-width: 1024px) {
+        .container {
+            padding: 40px;
+        }
+                }
+
         }
     </style>
 </head>
 <body>
-    <!-- Stars Background -->
-    <div id="stars-container"></div>
-    
     <div class="container">
         <div class="profile-section">
             <img src="./S__108969986.jpg" alt="Profile" class="profile-image">
@@ -690,19 +676,24 @@ animation: auraPulse 4s ease-in-out infinite;
             <div class="intro">
                 <h1 class="name">Phattharamon Inwan (KUNMING)</h1>
                 <p class="title">
-                   <strong> Nanomaterials Engineering • KMITL & Economics • RU</strong>
-                </p>
+                 <p>
+  <strong>Nanomaterials Engineering • KMITL & Economics • RU</strong>
+</p>
+
+
                 <p class="tagline">
                     Business-driven Engineer with a hybrid mindset bridging technology, management, and market insights<br>
-                   <strong> — "where design meets demand".</strong>
-                </p>
+                  <p>
+  — <strong>"where design meets demand"</strong>.
+</p>
+
             </div>
         </div>
 
-        <div class="header">
-            <div style="flex: 1;"></div>
-            
-           <div class="contact">
+       <div class="header">
+  <div style="flex: 1;"></div>
+
+  <div class="contact">
 
     <!-- Email -->
    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Phattharamon2802@gmail.com"
@@ -734,6 +725,7 @@ animation: auraPulse 4s ease-in-out infinite;
 
   </div>
 </div>
+
 
         <div class="section">
             <h2 class="section-title">Skills & Expertise</h2>
@@ -773,60 +765,74 @@ animation: auraPulse 4s ease-in-out infinite;
                 </div>
             </div>
         </div>
+<div class="section">
+    <h2 class="section-title">Experience & Awards (Selected) </h2>
 
-        <div class="section">
-            <h2 class="section-title">Experience & Awards (Selected)</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3 class="project-title">
-                        Advanced Metrology for Semiconductor Innovation (Workshop)
-                    </h3>
-                    <p class="project-date">Thai Microelectronics Center (TMEC)</p>
-                    <p class="project-desc">
-                        Gained hands-on experience with advanced semiconductor metrology tools,
-                        including 3D Optical Profiler, Step Profilometer, and AFM,
-                        for nano-scale surface characterization and precision measurement.
-                    </p>
-                </div>
+    <div class="projects">
+        <div class="project-card">
+            <h3 class="project-title">
+                Advanced Metrology for Semiconductor Innovation (Workshop)
+            </h3>
+            <p class="project-date">Thai Microelectronics Center (TMEC)</p>
+            <p class="project-desc">
+                Gained hands-on experience with advanced semiconductor metrology tools,
+including 3D Optical Profiler, Step Profilometer, and AFM,
+for nano-scale surface characterization and precision measurement.
 
-                <div class="project-card">
-                    <h3 class="project-title">
-                        BJM MediaX: AI Innovation Hackathon 2025
-                    </h3>
-                    <p class="project-date">Award Achievement</p>
-                    <p class="project-desc">
-                        Awarded <strong>2nd Runner-Up</strong> and <strong>Most Creative Award</strong>
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">
-                        Smart Materials Startup Showcase Project 2025
-                    </h3>
-                    <p class="project-date">Award Achievement</p>
-                    <p class="project-desc">
-                        Awarded <strong>Winner (1st Place)</strong>
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">
-                        Academic Excellence Scholarship 2024
-                    </h3>
-                    <p class="project-date">King Mongkut's Institute of Technology Ladkrabang (KMITL)</p>
-                    <p class="project-desc">
-                        <strong>Top Academic Rank (1st)</strong> in Nanomaterials Engineering, Year 1
-                    </p>
-                </div>
-            </div>
         </div>
+
+        <div class="project-card">
+            <h3 class="project-title">
+                BJM MediaX: AI Innovation Hackathon 2025
+            </h3>
+             <p class="project-role">
+    Role:  Research Analyst & Pitch Owner
+</p>
+            <p class="project-date">Award Achievement</p>
+            <p class="project-desc">
+                Awarded <strong>2nd Runner-Up</strong> and <strong>Most Creative Award</strong>
+                
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">
+                Smart Materials Startup Showcase Project 2025
+            </h3>
+             <p class="project-role">
+    Role:  Business Manager
+</p>
+            <p class="project-date">Award Achievement</p>
+            <p class="project-desc">
+                Awarded <strong>Winner (1st Place)</strong> 
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">
+                Academic Excellence Scholarship 2024
+            </h3>
+            <p class="project-date">King Mongkut’s Institute of Technology Ladkrabang (KMITL)</p>
+            <p class="project-desc">
+    
+                <strong>Top Academic Rank (1st)</strong> in Nanomaterials Engineering,
+                Year 1
+            </p>
+        </div>
+    </div>
+</div>
+
 
         <div class="section">
             <h2 class="section-title">Current Projects</h2>
             <div class="projects">
                 <div class="project-card">
                     <h3 class="project-title">SATI (System for App Trust Intelligence)</h3>
-                    <p class="project-date">Jan, 2025 - Present</p>
+                    <p class="project-date">Jan,2026-Present</p>
+                    <p class="project-role">
+    Role:  Business Manager & Pitch Owner
+</p>
+
                     <p class="project-desc">
                         Details to be updated (currently competing).
                     </p>
@@ -849,7 +855,10 @@ animation: auraPulse 4s ease-in-out infinite;
                 
                 <div class="project-card">
                     <h3 class="project-title">Microplastic Monitoring and Capture System Using Olive Oil and Nanoporous Carbon Adsorbents Integrated with AI Vision Analysis (Microguard)</h3>
-                    <p class="project-date">Dec, 2025 - Present</p>
+                    <p class="project-date">Dec,2025-Present</p>
+                    <p class="project-role">
+    Role:  Business Manager & Research Analyst
+</p>
                     <p class="project-desc">
                         Details to be updated (currently competing).
                     </p>
@@ -867,16 +876,21 @@ animation: auraPulse 4s ease-in-out infinite;
                             <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                             Adilun
                         </a>
-                        <a href="https://www.linkedin.com/in/aNatnicha-b30044292" target="_blank" class="team-member">
+<a href="https://www.linkedin.com/in/aNatnicha-b30044292" target="_blank" class="team-member">
                             <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                            Natnicha
+                           Natnicha
                         </a>
+
+
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <h3 class="project-title">Smart Eyewear Add-on</h3>
-                    <p class="project-date">Sep, 2025 - Present</p>
+                    <p class="project-date">Sep,2025-Present</p>
+                    <p class="project-role">
+    Role:  Business Manager
+</p>
                     <p class="project-desc">
                         Currently competing in "FPH-TU REINVENT BUILDER", under TU-IPI (TEDFUND).
                     </p>
@@ -887,17 +901,16 @@ animation: auraPulse 4s ease-in-out infinite;
                             Pharawi
                         </a>
                         <a href="https://www.linkedin.com/in/adilun-jsasn-b30044292" target="_blank" class="team-member">
-                            <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                           <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                             Adilun
                         </a>
                         <span class="team-member">
-                            <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                            Other Team Members (4)
-                        </span>
+        <svg class="team-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Other Team Members (4)
+    </span>
                     </div>
                 </div>
-                
-                <div class="more-projects">
+                 <div class="more-projects">
                     <a href="https://www.linkedin.com/in/phattharamon-i-1006871a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
                         View More Projects on LinkedIn →
                     </a>
@@ -906,46 +919,11 @@ animation: auraPulse 4s ease-in-out infinite;
         </div>
     </div>
 
-    <script>
-        // Create twinkling stars
-        const starsContainer = document.getElementById('stars-container');
-        const numStars = 100;
-        
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            starsContainer.appendChild(star);
-        }
-        
-        // Create shooting stars
-        function createShootingStar() {
-            const shootingStar = document.createElement('div');
-            shootingStar.className = 'shooting-star';
-            shootingStar.style.left = Math.random() * 100 + '%';
-            shootingStar.style.top = Math.random() * 50 + '%';
-            shootingStar.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
-            starsContainer.appendChild(shootingStar);
-            
-            setTimeout(() => {
-                shootingStar.remove();
-            }, 2000);
-        }
-        
-        // Create shooting stars at random intervals
-        setInterval(() => {
-            if (Math.random() > 0.6) {
-                createShootingStar();
-            }
-        }, 1000);
-        
-        // Create initial shooting stars
-        for (let i = 0; i < 3; i++) {
-            setTimeout(createShootingStar, Math.random() * 2000);
-        }
-    </script>1
+
+
+
+
+
+
 </body>
 </html>
