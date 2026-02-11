@@ -557,6 +557,50 @@ animation: auraPulse 4s ease-in-out infinite;
     margin-bottom: 8px;
 }
 
+
+/* --- CSS Time Capsule (สไตล์ที่คุณชอบ) --- */
+.time-capsule {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    
+    /* สไตล์ Neon */
+    background: rgba(30, 64, 175, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 6px;
+    padding: 4px 12px;       /* ปรับความอ้วนเล็กน้อยให้สวย */
+    
+    /* ลบ margin-left เดิมออก เพื่อให้ชิดซ้ายสุด */
+    margin: 0; 
+    
+    color: #93c5fd;
+    font-size: 13px;         /* เพิ่มขนาดตัวอักษรนิดนึงให้อ่านง่าย */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    
+    /* จัดให้ป้ายไม่ยืดหดจนเสียทรง */
+    flex-shrink: 0; 
+}
+
+.time-capsule:hover {
+    background: rgba(30, 64, 175, 0.3);
+    border-color: #60a5fa;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+    cursor: default;
+}
+
+.time-icon {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    opacity: 0.9;
+}
         .project-date {
             font-size: 13px;
             color: #60a5fa;
@@ -839,14 +883,23 @@ animation: auraPulse 4s ease-in-out infinite;
             <h2 class="section-title">Experience & Awards (Selected)</h2>
             <div class="projects">
      
-   <div class="project-card">
+                    <div class="project-card">
+                         <div class="time-capsule">
+            <svg class="time-icon" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+
+            <span>SEP, 2025-JAN, 2026</span> 
+        </div>
                     <h3 class="project-title">
-                        International Conference ‘Hyper Interdisciplinary Conference (HIC) Thailand 2026: Re-imagining Connections-From Education to Ecosystem
+                   
+
+                        <span>International Conference ‘Hyper Interdisciplinary Conference (HIC) Thailand 2026: Re-imagining Connections-From Education to Ecosystem</span>
                     </h3>
                      <p class="project-role">
-    Role :  Business Manager
+        Business Manager
 </p>
-                    <p class="project-date">Award Achievement</p>
+                    
                     <p class="project-desc">
                         Project : Smart Eyewear Add-on (looklink) <br>
                        Awarded <strong>Finalist (Top 10 Teams)</strong>
@@ -855,6 +908,13 @@ animation: auraPulse 4s ease-in-out infinite;
                 </div>
 
                 <div class="project-card">
+                      <div class="time-capsule">
+            <svg class="time-icon" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+
+            <span>NOV, 2025</span> 
+        </div>
                     <h3 class="project-title">
                       TMEC–Bruker Metrology Innovation Workshop 2025: Advanced Metrology for Semiconductor Innovation
                     </h3>
@@ -866,26 +926,42 @@ animation: auraPulse 4s ease-in-out infinite;
                     </p>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">
-                        BJM MediaX (Thammasat University): AI Innovation Hackathon 2025
+               <div class="project-card">
+  <div class="time-capsule">
+            <svg class="time-icon" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+
+            <span>NOV, 2025</span> 
+        </div>
+    <h3 class="project-title">
+       
+                      <span>  BJM MediaX (Thammasat University): AI Innovation Hackathon 2025</span>
                     </h3>
                      <p class="project-role">
-    Role :  Research Analyst & Pitch Owner
+                Research Analyst & Pitch Owner
 </p>
-                    <p class="project-date">Award Achievement</p>
+    
                     <p class="project-desc">
                         Project : Easy Commu <br>
                         Awarded <strong>2nd Runner-Up</strong> and <strong>Most Creative Award</strong>
                     </p>
                 </div>
 
+
                 <div class="project-card">
+                      <div class="time-capsule">
+            <svg class="time-icon" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+
+            <span>SEP, 2025</span> 
+        </div>
                     <h3 class="project-title">
                         Smart Materials Startup Showcase Project 2025
                     </h3>
                       <p class="project-role">
-                 Role :  Business Manager
+                Business Manager
             </p>
                     <p class="project-date">Award Achievement</p>
                     <p class="project-desc">
@@ -896,6 +972,13 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
                 </div>
 
                 <div class="project-card">
+                      <div class="time-capsule">
+            <svg class="time-icon" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+
+            <span>JUL, 2025</span> 
+        </div>
                     <h3 class="project-title">
                         Academic Excellence Scholarship 2024
                     </h3>
@@ -997,7 +1080,7 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
                     <h3 class="project-title">Microplastic Monitoring and Capture System Using Olive Oil and Nanoporous Carbon Adsorbents Integrated with AI Vision Analysis (Microguard)</h3>
                     <p class="project-date">Dec, 2025 - Present</p>
                     <p class="project-role">
-    Role :  Business Manager & Research Analyst
+    Business Manager & Research Analyst
 </p>
                 
                     <div class="team-members">
@@ -1024,7 +1107,7 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
                     <h3 class="project-title">THAIPHOON</h3>
                     <p class="project-date">Feb, 2026 - Present</p>
                     <p class="project-role">
-    Role :  Business & Market Researcher
+    Business & Market Researcher
                 
                     <div class="team-members">
                         <span class="team-label">Team:</span>
