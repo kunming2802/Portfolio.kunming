@@ -769,7 +769,13 @@ animation: auraPulse 4s ease-in-out infinite;
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
-
+@media (max-width: 480px) {
+  .tagline{
+    font-size:15px;
+    line-height:1.6;
+    max-width:320px;
+  }
+}
         @media (max-width: 480px) {
             .profile-section {
                 flex-direction: column;
