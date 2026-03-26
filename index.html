@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phattharamon Inwan - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -233,8 +234,10 @@ animation: auraPulse 4s ease-in-out infinite;
             align-items: center;
             gap: 30px;
             margin-bottom: 40px;
+            justify-content:center;   
             animation: slideInRight 0.8s ease-out 0.2s both;
             position: relative;
+            justify-content:center;  
             z-index: 1;
         }
 
@@ -274,8 +277,8 @@ animation: auraPulse 4s ease-in-out infinite;
         }
 
         .name {
-            font-size: 48px;
-            font-weight: 800;
+            font-size: 40px;
+            font-weight: 700;
             background: linear-gradient(135deg, #acb4c2 0%, #d4dcf6 50%, #1e3a8a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -383,7 +386,10 @@ animation: auraPulse 4s ease-in-out infinite;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.35); /* glow ขาวเบาๆ */
 }
 
-
+.name{
+font-weight:800;
+letter-spacing:-0.5px;
+}
         .section-title::before {
             content: '';
             width: 4px;
@@ -717,7 +723,13 @@ animation: auraPulse 4s ease-in-out infinite;
     border-radius:20px;
     transition:width 0.8s ease;
 }
+.section {
+    display: none;
+}
 
+.section.active {
+    display: block;
+}
 .progress-text{
     font-size:12px;
     color:#93c5fd;
@@ -760,7 +772,17 @@ animation: auraPulse 4s ease-in-out infinite;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+.section {
+opacity: 0;
+max-height: 0;
+overflow: hidden;
+transition: 0.5s ease;
+}
 
+.section.active {
+opacity: 1;
+max-height: 2000px;
+}
         .team-member {
             display: inline-flex;
             align-items: center;
@@ -788,7 +810,61 @@ animation: auraPulse 4s ease-in-out infinite;
             height: 14px;
             fill: currentColor;
         }
+.top-menu {
+position: absolute;
+top: 20px;
+right: 30px;
+display: flex;
+gap: 15px;
+z-index: 999;
+}
+.contact-icons{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:25px;
+}
 
+.contact-icons{
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:100%;      /* ✅ สำคัญมาก */
+margin-top:8px;
+
+gap:30px;
+}
+
+.contact-icon:hover{
+transform:translateY(-5px);
+background:rgba(59,130,246,0.25);
+box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
+
+.contact-icon svg{
+width:26px;
+fill:#60a5fa;
+}
+.top-menu button {
+background: rgba(30,64,175,0.2);
+border: 1px solid rgba(59,130,246,0.3);
+width: 40px;
+height: 40px;
+border-radius: 10px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.top-menu button:hover {
+background: rgba(59,130,246,0.3);
+transform: translateY(-2px);
+}
+
+.top-menu svg {
+width: 20px;
+fill: #60a5fa;
+}
         .more-projects {
             background: rgba(15, 23, 42, 0.5);
             padding: 20px;
@@ -805,7 +881,30 @@ animation: auraPulse 4s ease-in-out infinite;
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(30, 64, 175, 0.25);
         }
+.stats{
+display:flex;
+gap:20px;
+margin-top:10px;
 
+justify-content:center;  /* ✅ กึ่งกลาง */
+}
+
+.stat{
+text-align:center;
+
+}
+
+.stat-number{
+font-size:20px;
+font-weight:700;
+color:#60a5fa;
+display:block;
+}
+
+.stat-label{
+font-size:12px;
+color:#93c5fd;
+}
         .more-projects a {
             color: #3b82f6;
             text-decoration: none;
@@ -872,6 +971,27 @@ animation: auraPulse 4s ease-in-out infinite;
     <div id="stars-container"></div>
     
     <div class="container">
+        <div class="top-menu">
+
+<button onclick="showSection('skills')">
+<svg viewBox="0 0 24 24">
+<path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+</svg>
+</button>
+
+<button onclick="showSection('experience')">
+<svg viewBox="0 0 24 24">
+<path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
+</svg>
+</button>
+
+<button onclick="showSection('projects')">
+<svg viewBox="0 0 24 24">
+<path d="M3 3h18v18H3z"/>
+</svg>
+</button>
+
+</div>
         <div class="profile-section">
             <div class="profile-wrapper">
     <img src="./S__115736578.jpg" alt="Profile" class="profile-image">
@@ -890,36 +1010,49 @@ animation: auraPulse 4s ease-in-out infinite;
                 </p>
             </div>
         </div>
+<!-- Stats -->
+<div class="stats">
+<div class="stat">
+<span class="stat-number">10+</span>
+<span class="stat-label">Projects</span>
+</div>
+
+<div class="stat">
+<span class="stat-number">6</span>
+<span class="stat-label">Awards</span>
+</div>
+
+<div class="stat">
+<span class="stat-number">2</span>
+<span class="stat-label">Scholarships</span>
+</div>
+
+
+</div>
+
+
+
  <div class="header">
             <div style="flex: 1;"></div>
             
-           <div class="contact">
+         <div class="contact-icons">
 
-    <!-- Email -->
-   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Phattharamon2802@gmail.com"
-   target="_blank"
-   class="contact-item">
-  <svg class="icon" viewBox="0 0 24 24">
-    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-  </svg>
-      Phattharamon2802@gmail.com
-    </a>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=Phattharamon2802@gmail.com" target="_blank" class="contact-icon">
+<svg viewBox="0 0 24 24">
+<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+</svg>
+</a>
 
-   
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/phattharamon-i-1006871a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-       target="_blank"
-       class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
-      linkedin.com/in/phattharamon-i
-    </a>
+<a href="https://www.linkedin.com/in/phattharamon-i-1006871a5" target="_blank" class="contact-icon">
+<svg viewBox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+</svg>
+</a>
 
-  </div>
+</div>
 </div>
     
-        <div class="section">
+        <div class="section" id="skills">
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -959,8 +1092,7 @@ animation: auraPulse 4s ease-in-out infinite;
                 </div>
             </div>
         </div>
-
-        <div class="section">
+<div class="section" id="experience">
             <h2 class="section-title">Experience & Awards (Selected)</h2>
             <div class="projects">
 
@@ -1134,7 +1266,7 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
             </div>
         </div>
 
-<div class="section">
+<div class="section" id="certificates">
     <h2 class="section-title">Certificates & Licenses</h2>
     <div class="projects">
 
@@ -1215,7 +1347,7 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
     </div>
 </div>
 
-        <div class="section">
+      <div class="section" id="projects">
             <h2 class="section-title">Current Projects</h2>
             <div class="projects">
      
@@ -1371,6 +1503,36 @@ function updateAvailability() {
 updateAvailability();
 setInterval(updateAvailability, 60000); // update ทุก 1 นาที
 </script>
+<script>
+function showSection(id){
 
+document.querySelectorAll('.section')
+.forEach(section => {
+section.classList.remove('active')
+})
+
+document.getElementById(id)
+.classList.add('active')
+
+}
+
+</script>
+<script>
+function showSection(id){
+
+const section = document.getElementById(id)
+const isActive = section.classList.contains('active')
+
+// ปิดทั้งหมดก่อน
+document.querySelectorAll('.section')
+.forEach(sec => sec.classList.remove('active'))
+
+// ถ้าไม่ได้ active → เปิด
+if(!isActive){
+section.classList.add('active')
+}
+
+}
+</script>
 </body>
 </html>
