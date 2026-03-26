@@ -724,13 +724,7 @@ letter-spacing:-0.5px;
     border-radius:20px;
     transition:width 0.8s ease;
 }
-.section {
-    display: none;
-}
 
-.section.active {
-    display: block;
-}
 .progress-text{
     font-size:12px;
     color:#93c5fd;
@@ -773,16 +767,35 @@ letter-spacing:-0.5px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-.section {
-opacity: 0;
-max-height: 0;
-overflow: hidden;
-transition: 0.5s ease;
+.section{
+display:none;
+animation:fadeInUp 0.5s ease;
 }
 
-.section.active {
-opacity: 1;
-max-height: 2000px;
+.section.active{
+display:block;
+}
+@media (max-width:768px){
+
+.project-card{
+padding:20px;
+}
+
+.time-capsule{
+font-size:12px;
+}
+
+.project-title{
+font-size:16px;
+}
+
+}
+@media (max-width:768px){
+
+.projects{
+gap:16px;
+}
+
 }
         .team-member {
             display: inline-flex;
@@ -811,19 +824,16 @@ max-height: 2000px;
             height: 14px;
             fill: currentColor;
         }
-.top-menu {
-position: absolute;
-top: 20px;
-right: 30px;
-display: flex;
-gap: 15px;
-z-index: 999;
-}
-.contact-icons{
+.top-menu{
 display:flex;
 justify-content:center;
-gap:30px;
-margin-top:25px;
+align-items:center;
+
+width:100%;        /* ✅ สำคัญ */
+margin-top:8px;
+gap:15px;
+
+position:relative; /* กันลอย */
 }
 
 .contact-icons{
@@ -978,27 +988,7 @@ color:#93c5fd;
     <div id="stars-container"></div>
     
     <div class="container">
-        <div class="top-menu">
-
-<button onclick="showSection('skills')">
-<svg viewBox="0 0 24 24">
-<path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-</svg>
-</button>
-
-<button onclick="showSection('experience')">
-<svg viewBox="0 0 24 24">
-<path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
-</svg>
-</button>
-
-<button onclick="showSection('projects')">
-<svg viewBox="0 0 24 24">
-<path d="M3 3h18v18H3z"/>
-</svg>
-</button>
-
-</div>
+        
         <div class="profile-section">
             <div class="profile-wrapper">
     <img src="./S__115736578.jpg" alt="Profile" class="profile-image">
@@ -1055,6 +1045,27 @@ color:#93c5fd;
 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 </svg>
 </a>
+
+</div>
+<div class="top-menu">
+
+<button onclick="showSection('skills')">
+<svg viewBox="0 0 24 24">
+<path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+</svg>
+</button>
+
+<button onclick="showSection('experience')">
+<svg viewBox="0 0 24 24">
+<path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
+</svg>
+</button>
+
+<button onclick="showSection('projects')">
+<svg viewBox="0 0 24 24">
+<path d="M3 3h18v18H3z"/>
+</svg>
+</button>
 
 </div>
 </div>
@@ -1477,7 +1488,7 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
         for (let i = 0; i < 3; i++) {
             setTimeout(createShootingStar, Math.random() * 2000);
         }
-    </script>1
+    </script>
     <script>
 function updateAvailability() {
     const badge = document.getElementById("availability-badge");
