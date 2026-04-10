@@ -1019,7 +1019,7 @@ fill: #60a5fa;
   background-size: cover;
   background-blend-mode: overlay;
 
-  opacity: 0.15; /* 👈 จางๆ */
+  opacity: 0.17; /* 👈 จางๆ */
   filter: grayscale(100%) contrast(120%);
 
   box-shadow: 0 0 80px rgba(255,255,255,0.1);
@@ -1046,7 +1046,44 @@ fill: #60a5fa;
 
   background: radial-gradient(circle at 70% 50%, transparent 40%, rgba(0,0,0,0.5) 100%);
 }
+.earth {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%),
+    url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+
+  background-size: cover;
+  background-blend-mode: overlay;
+
+  opacity: 0.17;
+  filter: contrast(110%) saturate(120%);
+
+  box-shadow: 0 0 80px rgba(100,150,255,0.15);
+
+  animation: rotateEarth 180s linear infinite;
+
+  z-index: -1;
+  pointer-events: none;
+
+  display: none; /* ซ่อนไว้ก่อน */
+}
+
+@keyframes rotateEarth {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 
         .more-projects {
@@ -1153,6 +1190,8 @@ background:#60a5fa;
 font-size:12px;
 color:#93c5fd;
 }
+
+
         .more-projects a {
             color: #3b82f6;
             text-decoration: none;
@@ -1222,6 +1261,7 @@ color:#93c5fd;
 
         
         <div class="moon"></div>
+<div class="earth" id="earth"></div>
 
         <div class="profile-section">
             <div class="profile-wrapper">
@@ -1412,11 +1452,6 @@ Development Progress • 75%
 </div>
 
 
-
-
-
-
-
         <div class="section" id="skills">
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
@@ -1468,7 +1503,7 @@ Development Progress • 75%
                 <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2.9 2-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
             </svg>
 
-            <span>Incoming APR, 2026</span> 
+            <span>APR, 2026-JUN, 2026</span> 
         </div>
                     <h3 class="project-title">
             
@@ -1497,8 +1532,8 @@ Development Progress • 75%
                     </h3>
                     <p class="project-date">King Mongkut's Institute of Technology Ladkrabang (KMITL)</p>
                     <p class="project-desc">
-                        <strong>Top Academic Rank (1st, Year 2)</strong> in Nanomaterials Engineering
-                    </p>
+                        <strong>Top Academic Rank (1st, Year 2)</strong> 
+among 100+ students in Nanomaterials Engineering
                 </div>
 
      <div class="project-card">
@@ -1626,8 +1661,8 @@ Heat Stroke Prevention and Early Warning System Using Advanced Nanomaterials <br
                     </h3>
                     <p class="project-date">King Mongkut's Institute of Technology Ladkrabang (KMITL)</p>
                     <p class="project-desc">
-                        <strong>Top Academic Rank (1st, Year 1)</strong> in Nanomaterials Engineering
-                    </p>
+                        <strong>Top Academic Rank (1st, Year 1)</strong> 
+among 100+ students in Nanomaterials Engineering
                 </div>
             </div>
         </div>
@@ -1947,7 +1982,28 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+function updateSkyObject() {
+  const hour = new Date().getHours()
 
+  const moon = document.getElementById("moon")
+  const earth = document.getElementById("earth")
+
+  // 06:00 - 17:59 = โลก
+  if (hour >= 6 && hour < 19) {
+    earth.style.display = "block"
+    moon.style.display = "none"
+  } 
+  // 18:00 - 05:59 = ดวงจันทร์
+  else {
+    earth.style.display = "none"
+    moon.style.display = "block"
+  }
+}
+
+updateSkyObject()
+setInterval(updateSkyObject, 60000)
+</script>
 
 
 </body>
