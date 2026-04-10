@@ -120,7 +120,7 @@
             box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
             animation: twinkle 3s ease-in-out infinite;
             pointer-events: none;
-            z-index: 1;
+            z-index: -2;
         }
 
         .shooting-star {
@@ -178,7 +178,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 3;
+            z-index: 2;
         }
 
         .container {
@@ -326,6 +326,7 @@ animation: auraPulse 4s ease-in-out infinite;
             border-radius: 16px;
             border: 1px solid rgba(30, 64, 175, 0.3);
             box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
+         z-index: 1;
         }
 
         .contact-item {
@@ -999,6 +1000,55 @@ transform: translateY(-2px);
 width: 20px;
 fill: #60a5fa;
 }
+
+.moon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+
+  /* 👇 ใช้ texture ดวงจันทร์จริง */
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(200,200,200,0.4) 60%, rgba(0,0,0,0.3)),
+    url("https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg");
+
+  background-size: cover;
+  background-blend-mode: overlay;
+
+  opacity: 0.15; /* 👈 จางๆ */
+  filter: grayscale(100%) contrast(120%);
+
+  box-shadow: 0 0 80px rgba(255,255,255,0.1);
+
+  animation: rotateMoon 120s linear infinite;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes rotateMoon {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 70% 50%, transparent 40%, rgba(0,0,0,0.5) 100%);
+}
+
+
+
         .more-projects {
             background: rgba(15, 23, 42, 0.5);
             padding: 20px;
@@ -1169,7 +1219,10 @@ color:#93c5fd;
     <div id="stars-container"></div>
     
     <div class="container">
+
         
+        <div class="moon"></div>
+
         <div class="profile-section">
             <div class="profile-wrapper">
     <img src="./S__115736578.jpg" alt="Profile" class="profile-image">
@@ -1194,23 +1247,20 @@ color:#93c5fd;
 <!-- Stats -->
 <div class="stats">
 <div class="stat">
-<span class="stat-number">10+</span>
+  <span class="stat-number counter" data-target="10">0</span>
 <span class="stat-label">Projects</span>
 </div>
 
 <div class="stat">
-<span class="stat-number">6</span>
+  <span class="stat-number counter" data-target="6">0</span>
 <span class="stat-label">Awards</span>
 </div>
 
 <div class="stat">
-<span class="stat-number">2</span>
+<span class="stat-number">2/4</span>
 <span class="stat-label">Scholarships</span>
 </div>
-
-
 </div>
-
 
 
  <div class="header">
@@ -1276,9 +1326,11 @@ color:#93c5fd;
 </svg>
 </button>
 <button onclick="showSection('contact')">
-<svg viewBox="0 0 24 24">
-<path d="M21 8V7l-3 2-2-1-5 3-4-2-4 2v10h18V8z"/>
-</svg>
+ <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+    <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 
+    0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+    4-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
 </button>
 
 
@@ -1866,5 +1918,35 @@ section.classList.add('active')
 
 }
 </script>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+
+  console.log("เจอ counter:", counters.length); // 👈 debug
+
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    let current = 0;
+
+    const update = () => {
+      current++;
+
+      if (current <= target) {
+        counter.innerText = current;
+        setTimeout(update, 130); // 👈 ช้าๆ เห็นชัด
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+
+    update();
+  });
+});
+</script>
+
+
+
+
 </body>
 </html>
