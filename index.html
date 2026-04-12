@@ -1046,44 +1046,6 @@ fill: #60a5fa;
 
   background: radial-gradient(circle at 70% 50%, transparent 40%, rgba(0,0,0,0.5) 100%);
 }
-.earth {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%),
-    url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-
-  background-size: cover;
-  background-blend-mode: overlay;
-
-  opacity: 0.17;
-  filter: contrast(110%) saturate(120%);
-
-  box-shadow: 0 0 80px rgba(100,150,255,0.15);
-
-  animation: rotateEarth 180s linear infinite;
-
-  z-index: -1;
-  pointer-events: none;
-
-  display: none; /* ซ่อนไว้ก่อน */
-}
-
-@keyframes rotateEarth {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
 
 
         .more-projects {
@@ -1261,7 +1223,7 @@ color:#93c5fd;
 
         
         <div class="moon"></div>
-<div class="earth" id="earth"></div>
+
 
         <div class="profile-section">
             <div class="profile-wrapper">
@@ -1982,28 +1944,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<script>
-function updateSkyObject() {
-  const hour = new Date().getHours()
-
-  const moon = document.getElementById("moon")
-  const earth = document.getElementById("earth")
-
-  // 06:00 - 17:59 = โลก
-  if (hour >= 6 && hour < 19) {
-    earth.style.display = "block"
-    moon.style.display = "none"
-  } 
-  // 18:00 - 05:59 = ดวงจันทร์
-  else {
-    earth.style.display = "none"
-    moon.style.display = "block"
-  }
-}
-
-updateSkyObject()
-setInterval(updateSkyObject, 60000)
-</script>
 
 
 </body>
