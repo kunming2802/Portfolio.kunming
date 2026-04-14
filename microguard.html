@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microguard Project - Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ดึงสไตล์หลักจากเว็บเดิมมาใช้ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #e5e5e5;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* พื้นหลัง Aura แบบเดิม */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(29, 78, 216, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #000000;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(30, 64, 175, 0.15);
+        }
+
+        /* --- ส่วนหัวโปรเจค --- */
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .badge-award {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid #f59e0b;
+            color: #f59e0b;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+        }
+
+        /* --- Gallery ภาพผลงาน --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+    .gallery-item {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background: #111;
+    border-radius: 12px;
+    overflow: auto;   /* เปลี่ยนจาก hidden เป็น auto */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;     /* ให้ภาพเต็ม */
+    object-fit: contain;
+}
+
+        .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
+
+        /* --- เนื้อหา / บทคัดย่อ --- */
+        .content-section {
+            margin-bottom: 35px;
+        }
+
+        .section-label {
+            color: #60a5fa;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+       .abstract-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #cbd5e1;
+   text-align: left;  
+    text-indent: 2em;
+    margin-bottom: 16px;
+}
+
+        /* --- รายชื่อทีมแบบมีรูปเล็ก --- */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .member-card {
+            background: rgba(30, 64, 175, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 14px;
+            color: #93c5fd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: #60a5fa; }
+
+        @media (max-width: 600px) {
+            .gallery { grid-template-columns: 1fr; }
+            .container { padding: 25px; }
+            .title { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+
+    <header class="project-header">
+        <div class="badge-award">🏆 Finalist (Top 11 Worldwide)</div>
+        <h1 class="title">        Microplastic Monitoring and Capture System Using Olive Oil and Nanoporous 
+        Carbon Adsorbents Integrated with AI Vision Analysis 
+     <br> (Microguard)<br>
+</h1>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item"><img src="รูปภาพ1.png" alt="Work 1"></div>
+        <div class="gallery-item"><img src="รูปภาพ3.jpg" alt="Work 2"></div>
+    </div>
+
+    <div class="content-section">
+    <span class="section-label">Abstract</span>
+
+    <p class="abstract-text">
+    This research aimed to develop a prototype system for detecting and capturing 
+    microplastics in aquatic environments by utilizing olive oil as a medium 
+    for microplastic extraction, combined with nanoporous carbon sorbents derived 
+    from agricultural waste to enhance the adsorption of small particles. 
+    In addition, AI Vision technology was applied for real-time analysis 
+    and monitoring of microplastic contamination.
+    </p>
+
+    <p class="abstract-text">
+    The experimental procedure involved preparing water 
+    samples contaminated with polypropylene-based microplastics 
+    to simulate real environmental conditions,
+     including general sediment conditions and high organic matter conditions.
+      The samples were then pumped through the prototype system
+       under a constant flow rate. Water samples were collected 
+       before and after treatment to evaluate capture efficiency 
+       using microscopic observation and AI Vision based on light 
+       scattering in the oil layer.
+    </p>
+
+    <p class="abstract-text">
+    The results showed that olive oil could capture microplastics 
+    sized 0.3-5 mm with an efficiency of approximately 92-99% 
+    and recover particles sized 1-5 mm under high organic matter 
+    conditions with an efficiency of 90-99%. However,
+     the efficiency decreased for particles smaller than 1 mm. 
+     This limitation was improved by using nanoporous carbon sorbents
+      with nanoscale porous structures.
+    </p>
+
+    <p class="abstract-text">
+    Furthermore, the AI Vision system processed the data 
+    and displayed the results on a real-time dashboard 
+    to support risk assessment and decision-making in water resource management.
+     The developed system demonstrates strong potential 
+     for application in community areas, aquaculture facilities,
+      and industrial sectors to reduce microplastic pollution 
+      before entering aquatic ecosystems and to promote sustainable 
+      environmental management in the long term.
+    </p>
+
+</div>
+
+    <div class="content-section">
+        <span class="section-label">Key Achievements</span>
+        <ul style="color: #cbd5e1; font-size: 14px; margin-left: 20px; line-height: 2;">
+            <li>Dual-Stage Microplastic Capture Technology</li>
+<li>AI Vision Real-Time Monitoring Dashboard</li>
+<li>Capture Efficiency up to 99%</li>
+<li>Low-Cost Sustainable Prototype</li>
+<li>WFEO Hackathon 2026 Finalist (Top 11 Worldwide)</li>
+</ul>
+    </div>
+
+    <div class="content-section">
+        <span class="section-label">Research & Development Team</span>
+        <div class="team-grid">
+            <div class="member-card">Phattharamon</div>
+            <div class="member-card">Pharawi</div>
+            <div class="member-card">Anthony</div>
+            <div class="member-card">Adilun</div>
+            <div class="member-card">Natnicha</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
