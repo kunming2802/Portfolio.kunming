@@ -174,7 +174,7 @@
         /* --- ส่วนหัวโปรเจค --- */
         .project-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
 
         .badge-award {
@@ -186,7 +186,7 @@
             border-radius: 999px;
             font-size: 14px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
@@ -198,6 +198,7 @@
     -webkit-text-fill-color: transparent;
     line-height: 1.3;
     text-shadow: 0 0 20px rgba(96,165,250,0.2);
+     margin-bottom: 0;
 }
         /* --- Gallery ภาพผลงาน --- */
         .gallery {
@@ -221,8 +222,12 @@
     object-fit: contain;
 }
 
-        .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
-
+      .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: none; /* ปิด animation */
+}
         /* --- เนื้อหา / บทคัดย่อ --- */
         .content-section {
             margin-bottom: 35px;
@@ -292,7 +297,23 @@ transition:0.3s;
 color:#93c5fd;
 border-color:#93c5fd;
 }
+.footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #64748b;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    line-height: 1.8;
+}
 
+.footer span {
+    color: #93c5fd;
+}
+
+.footer:hover {
+    color: #94a3b8;
+}
         /* --- รายชื่อทีมแบบมีรูปเล็ก --- */
         .team-grid {
             display: flex;
@@ -300,22 +321,24 @@ border-color:#93c5fd;
             gap: 15px;
             margin-top: 10px;
         }
-.member-card {
-    background: rgba(30, 64, 175, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #93c5fd;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
+.author-section {
+   margin-top: 12px; /* ลดลง = ชิดขึ้น */
+
+    text-align: center;
 }
 
-.member-card:hover{
-transform: translateY(-3px);
-box-shadow: 0 5px 15px rgba(59,130,246,0.2);
+.authors {
+    font-size: 13px;
+    color: #e2e8f0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.affiliation {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
 }
 
         /* ปุ่มย้อนกลับ */
@@ -352,7 +375,15 @@ box-shadow: 0 5px 15px rgba(59,130,246,0.2);
      <br> (Microguard)<br>
 </h1>
     </header>
-
+<div class="author-section">
+    <div class="authors">
+        Phattharamon, Pharawi, Anthony, Adilun, Natnicha
+    </div>
+    <div class="affiliation">
+        Department of Integrated Innovative Technology (SIITec), KMITL<br>
+        Advisor : Assoc. Prof. Dr. Apiluck Eiad-ua
+    </div>
+</div>
     <div class="gallery">
         <div class="gallery-item"><img src="รูปภาพ1.png" alt="Work 1"></div>
         <div class="gallery-item"><img src="รูปภาพ3.jpg" alt="Work 2"></div>
@@ -436,17 +467,12 @@ box-shadow: 0 5px 15px rgba(59,130,246,0.2);
         </a>
     </div>
 
-</div>
-    <div class="content-section">
-        <span class="section-label">Research & Development Team</span>
-        <div class="team-grid">
-            <div class="member-card">Phattharamon</div>
-            <div class="member-card">Pharawi</div>
-            <div class="member-card">Anthony</div>
-            <div class="member-card">Adilun</div>
-            <div class="member-card">Natnicha</div>
-        </div>
+
     </div>
+    <div class="footer">
+  © <span id="year"></span> Copyright 2026 <br />
+  Designed & Developed by Kunming
+</div>
 </div>
 
 </body>
