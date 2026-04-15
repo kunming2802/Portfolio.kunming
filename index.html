@@ -1152,6 +1152,25 @@ background:#60a5fa;
 font-size:12px;
 color:#93c5fd;
 }
+.tagline span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.8s ease forwards;
+}
+
+/* ไล่ delay ทีละบรรทัด */
+.tagline span:nth-child(1) { animation-delay: 0.2s; }
+.tagline span:nth-child(3) { animation-delay: 0.5s; }
+.tagline span:nth-child(5) { animation-delay: 0.8s; }
+.tagline span:nth-child(7) { animation-delay: 1.1s; }
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .product-btn{
 position: relative;
@@ -1219,6 +1238,7 @@ z-index: 10;
     
 </head>
 <body>
+    
     <!-- Stars Background -->
     <div id="stars-container"></div>
     
@@ -1240,12 +1260,12 @@ z-index: 10;
                    <strong> Nanomaterials Engineering • KMITL & <br>
                        Economics • RU</strong>
                 
-                <p class="tagline">
-                    Business-driven Engineer with a hybrid <br>
-                    mindset bridging technology, analysis,<br>
-                    management, and market insights<br>
-                   <strong> — "where design meets demand".</strong>
-                </p>
+               <p class="tagline">
+    <span>Business-driven Engineer with a hybrid</span><br>
+    <span>mindset bridging technology, analysis,</span><br>
+    <span>management, and market insights</span><br>
+    <span><strong>— "where design meets demand".</strong></span>
+</p>
             </div>
         </div>
 
