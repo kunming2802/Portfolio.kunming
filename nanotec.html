@@ -252,6 +252,35 @@
     text-indent: 2em;
     margin-bottom: 16px;
 }
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 30% 40%, rgba(30, 64, 175, 0.18), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.12), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.10), transparent 65%);
+
+    filter: blur(80px);
+    opacity: 0.7;
+
+    z-index: -2;
+}
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 10% 80%, rgba(30, 64, 175, 0.10), transparent 60%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.08), transparent 60%);
+
+    filter: blur(100px);
+    opacity: 0.5;
+
+    z-index: -3;
+}
 .official{
 margin-bottom:20px;
 }
@@ -374,7 +403,7 @@ border-color:#93c5fd;
         <div class="badge-award"> 🔬  Internship Experience</div>
         <h1 class="title">
         2-Month Internship at NANOTEC (NSTDA)
-      
+        
     </h1>
     </header>
     <div class="affiliation">
