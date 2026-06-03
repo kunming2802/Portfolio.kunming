@@ -1198,6 +1198,104 @@ color:#93c5fd;
     animation: fadeSlide 0.8s ease forwards;
 }
 
+
+
+/* ===== University & Organization Logo Slider (New Cosmic Visuals) ===== */
+
+.logo-slider {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 45px;
+    padding: 25px 0;
+    
+    /* เส้นแบ่งบน-ล่าง สไตล์นีออนจางๆ เข้ากับกรอบเว็บ */
+    border-top: 1px solid rgba(59, 130, 246, 0.12);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.05);
+    background: radial-gradient(circle at center, rgba(30, 64, 175, 0.1) 0%, transparent 80%);
+    
+    position: relative;
+
+    /* 🌟 HIGHLIGHT: เทคนิคไล่ระดับความสว่างและสีจากขอบเข้าสู่ศูนย์กลาง */
+    -webkit-mask-image: linear-gradient(
+        to right, 
+        transparent 0%, 
+        rgba(0,0,0,0.2) 15%, 
+        rgba(0,0,0,1) 40%, 
+        rgba(0,0,0,1) 60%, 
+        rgba(0,0,0,2) 85%, 
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right, 
+        transparent 0%, 
+        rgba(0,0,0,0.15) 15%, 
+        rgba(0,0,0,1) 38%, 
+        rgba(0,0,0,1) 62%, 
+        rgba(0,0,0,0.15) 85%, 
+        transparent 100%
+    );
+}
+
+.logo-track {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    width: max-content;
+    animation: scrollLogos 22s linear infinite; /* ปรับให้วิ่งนิ่งและช้าลงนิดนึงเพื่อความหรูหรา */
+}
+
+.logo-track img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    
+    /* 🔴 กรองพื้นหลังสีขาวด้วย CSS เหมือนเดิม */
+    mix-blend-mode: screen; 
+
+    /* ปรับฟิลเตอร์เริ่มต้นให้ติดโทนสีฟ้าคอสมิกจางๆ (ไม่ได้ขาวดำสนิทจนดูจืดชืด) */
+    filter: grayscale(80%) brightness(1.1) sepia(30%) hue-rotate(190deg) saturate(90%);
+    opacity: 0.55;
+    
+    /* ใช้ CSS Animation ควบคุมความสว่างตามตำแหน่งการเคลื่อนที่แบบ Real-time */
+    animation: centerColor Enhancement linear both;
+    animation-timeline: view(inline);
+    animation-range: entry 20% exit 80%;
+}
+
+/* 🌟 สคริปต์จำลอง Dynamic Hover (เมื่อเมาส์ชี้ก็ยังคงเรืองแสงเพิ่มได้อีก) */
+.logo-track img:hover {
+    filter: grayscale(0%) brightness(1.3) drop-shadow(0 0 15px rgba(96, 165, 250, 0.95)) !important;
+    opacity: 1 !important;
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+@keyframes scrollLogos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* 🪐 สลับสีภาพอัตโนมัติเมื่อวัตถุเคลื่อนผ่านแกนกลางจอ (รองรับเบราว์เซอร์ยุคใหม่) */
+@keyframes centerColor {
+    0%, 100% {
+        filter: grayscale(80%) brightness(1.1) sepia(30%) hue-rotate(190deg);
+        opacity: 0.55;
+    }
+    45%, 55% {
+        filter: grayscale(0%) brightness(1.2) contrast(1.05) drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 /* ไล่ delay ทีละบรรทัด */
 .tagline span:nth-child(1) { animation-delay: 0.2s; }
 .tagline span:nth-child(3) { animation-delay: 0.5s; }
@@ -1459,8 +1557,6 @@ Open to collaboration and new project opportunities.
          
     </ul>
 </div>
-
-
 </div>
 </div>
 </div>
@@ -1911,9 +2007,60 @@ View Academic Details →
   © <span id="year"></span> Copyright 2026 <br />
 Designed & Developed by Kunming
 </div>
+   <div class="logo-slider">
+    <div class="logo-track">
+
+        <img src="kmitl.png" alt="KMITL">
+         <img src="SIITec.png" alt="SIITec">
+          <img src="Emblem_of_Ramkhamhaeng_University,_BW.svg.png" alt="robustness">
+         <img src="logo-nstda-202010.png" alt="NSTDA">
+         <img src="nrct.png" alt="NRCT">
+        <img src="nano.png" alt="NANOTEC">
+        <img src="WED2026-LogoALPHA.webp" alt="WFEO">
+
+         <img src="kmitl.png" alt="KMITL">
+         <img src="SIITec.png" alt="SIITec">
+          <img src="Emblem_of_Ramkhamhaeng_University,_BW.svg.png" alt="robustness">
+         <img src="logo-nstda-202010.png" alt="NSTDA">
+         <img src="nrct.png" alt="NRCT">
+        <img src="nano.png" alt="NANOTEC">
+        <img src="WED2026-LogoALPHA.webp" alt="WFEO">
+
+         <img src="kmitl.png" alt="KMITL">
+         <img src="SIITec.png" alt="SIITec">
+          <img src="Emblem_of_Ramkhamhaeng_University,_BW.svg.png" alt="robustness">
+         <img src="logo-nstda-202010.png" alt="NSTDA">
+         <img src="nrct.png" alt="NRCT">
+        <img src="nano.png" alt="NANOTEC">
+        <img src="WED2026-LogoALPHA.webp" alt="WFEO">
+
+         <img src="kmitl.png" alt="KMITL">
+         <img src="SIITec.png" alt="SIITec">
+          <img src="Emblem_of_Ramkhamhaeng_University,_BW.svg.png" alt="robustness">
+         <img src="logo-nstda-202010.png" alt="NSTDA">
+         <img src="nrct.png" alt="NRCT">
+        <img src="nano.png" alt="NANOTEC">
+        <img src="WED2026-LogoALPHA.webp" alt="WFEO">
+
+         <img src="kmitl.png" alt="KMITL">
+         <img src="SIITec.png" alt="SIITec">
+          <img src="Emblem_of_Ramkhamhaeng_University,_BW.svg.png" alt="robustness">
+         <img src="logo-nstda-202010.png" alt="NSTDA">
+         <img src="nrct.png" alt="NRCT">
+        <img src="nano.png" alt="NANOTEC">
+        <img src="WED2026-LogoALPHA.webp" alt="WFEO">
+
+      
+       
+        
+       
     </div>
+</div>
 
 
+
+</div>
+</div>
     <script>
         // Create twinkling stars
         const starsContainer = document.getElementById('stars-container');
@@ -2045,7 +2192,33 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const logos = document.querySelectorAll(".logo-track img");
 
+    // สร้างการตรวจจับพื้นที่กลางหน้าจอ (ขอบเขตซ้าย-ขวา 35% ถึง 65% ของจอ)
+    const observerOptions = {
+        root: null, // ตรวจจับอ้างอิงกับแถบแสดงผลหน้าจอ (Viewport)
+        rootMargin: "0px -35% 0px -35%", // บีบพื้นที่ตรวจจับให้เหลือเฉพาะโซนกลางจอเท่านั้น
+        threshold: 0.1 // เมื่อโลโก้โผล่เข้ามาในโซนกลางจอ 10% ให้ทำงานทันที
+    };
+
+    const logoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // ถ้าสไลด์มาอยู่ตรงกลางจอ -> สลับเป็นภาพสี
+                entry.target.classList.add("active");
+            } else {
+                // ถ้าเลื่อนออกจากตรงกลางจอ -> กลับไปเป็นสีจาง
+                entry.target.classList.remove("active");
+            }
+        });
+    }, observerOptions);
+
+    // สั่งให้ตัวตรวจจับทำงานกับโลโก้ทุกตัวในแถบสไลด์
+    logos.forEach(logo => logoObserver.observe(logo));
+});
+</script>
 
 </body>
 </html>
